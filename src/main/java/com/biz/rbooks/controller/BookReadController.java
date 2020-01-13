@@ -44,6 +44,8 @@ public class BookReadController {
 	@RequestMapping(value = "list",method=RequestMethod.GET)
 	public String readList(Model model, BookDTO bookDTO) {
 		
+		List<BookDTO> bList = bService.bookSelectAll();
+		
 		List<BookReadDTO> readList = brService.SelectAll();
 		
 		model.addAttribute("READ_LIST", readList);
@@ -53,6 +55,7 @@ public class BookReadController {
 	
 	/*
 	 * 독서록 작성 메서드
+	 * model을 통해 독서시각, 독서날짜, 도서코드를 read/insert로 넘겨줌
 	 */
 	@RequestMapping(value = "insert",method = RequestMethod.GET)
 	public String insert(@RequestParam("id") String rb_bcode, @ModelAttribute("bookReadDTO") BookReadDTO bookReadDTO,
@@ -60,25 +63,28 @@ public class BookReadController {
 		
 		Date date = new Date();
 		SimpleDateFormat sd = new SimpleDateFormat("yyyy/MM/dd");
+		SimpleDateFormat st = new SimpleDateFormat("hh:mm:ss");
 		String curDate = sd.format(date);
+		String curTime = st.format(date);
 		
 		
 		bookDTO = bService.findByBCode(rb_bcode);
-		model.addAttribute("serverTime", curDate);
+		model.addAttribute("serverDate", curDate);
+		model.addAttribute("serverTime", curTime);
+		
 		model.addAttribute("BCODE", bookDTO.getB_code());
-		model.addAttribute("bookReadDTO", bookReadDTO);
 		return "read/insert";
 	}
 
 	/*
-	 * httpSession 매개변수는 작성자를 insert하기 위해서 session에 담겨있는 BookReadDTO의 id 값을 rb_name(작성자)에 담아주기 위해서 선언
+	 * httpSession 매개변수는 작성자를 insert하기 위해서 session에 담겨있는 m_id 값을 rb_name(작성자)에 담아주기 위해서 선언
 	 */
 	@RequestMapping(value="insert",method=RequestMethod.POST)
 	public String insert(@ModelAttribute("bookReadDTO") BookReadDTO bookReadDTO, Model model,SessionStatus sStatus,HttpSession httpSession) {
 		
 		MemberDTO memberDTO = (MemberDTO) httpSession.getAttribute("MEMBER");
-		bookReadDTO.setRb_name(memberDTO.getM_id());
-		
+		bookReadDTO.setRb_writer(memberDTO.getM_id());
+	
 		int ret = brService.insert(bookReadDTO);
 		
 		// session에 담긴 값을 clear 		
@@ -101,7 +107,7 @@ public class BookReadController {
 	
 	/*
 	 *  도서록 정보 수정 메서드
-	 *  view 에서 requestParam으로 넘긴 id 값을 받아서 select한 후에 bookDTO 변수에 담고 model 변수를 통해서 read/insert.jsp로 넘겨준다
+	 *  view 에서 requestParam으로 넘긴 id 값을 받아서 seq로 select한 후에 bookDTO 변수에 담고 model 변수를 통해서 read/insert.jsp로 넘겨준다
 	 */
 	@RequestMapping(value="update",method=RequestMethod.GET)
 	public String update(@ModelAttribute("bookReadDTO") BookReadDTO bookreadDTO, Model model, @RequestParam("id") long rb_seq) {

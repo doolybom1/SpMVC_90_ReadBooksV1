@@ -111,7 +111,7 @@ $(function(){
 
 	<tr>
 	<th>별점</th><td>${readBookDTO.rb_star}</td>
-	<th>작성자</th><td>${readBookDTO.rb_name}</td>
+	<th>작성자</th><td>${readBookDTO.rb_writer}</td>
 	</tr>
 
 </table>

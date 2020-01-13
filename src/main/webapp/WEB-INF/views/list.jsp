@@ -31,6 +31,7 @@
 	header h2{
 		text-align: center;
 		margin :1rem;
+		color: tomato;
 	}
 	.list-box th{
 		background-color: #ccc;
@@ -67,7 +68,7 @@
 		margin-left: auto;
 	}
 	.join{
-		margin-right: 180px;
+		margin-right: 450px;
 	}
 	
 	#login, #join{
@@ -152,12 +153,13 @@
 		cursor: pointer;
 	}
 	
-	#lid-location{
-		margin-left:180px;
-		
-	}
+	
 	#lid{
 		text-decoration: none;
+	}
+	
+	#lid-location{
+		margin-left: 480px;
 	}
 	
 	<!-- -->
@@ -177,7 +179,7 @@
           	border-radius: 3px;
 			z-index: 1;
 			bottom: 180%;
-			left: 40%;
+			left: 70%;
 		}
 		.tooltip .tooltip-content::after {
 			content: " ";
@@ -205,11 +207,6 @@ $(function() {
 					document.location.href = "${rootPath}/member/login"
 			}
 		})
-		
-		
-		if("${MODAL}" == 'LOGIN' || "${MODAL}" == 'JOIN'){
-			$("#login_modal").css("display","block")
-		}
 })
 
 </script>
@@ -219,12 +216,13 @@ $(function() {
 <body>	
 <header>
 	<h2>도서 정보</h2>
-	<div class="tooltip">
-		<span><p id="lid-location"><a id="lid" href="${rootPath}/member/logout">${MEMBER.m_id}</a></p></span>
-		<div class="tooltip-content">
-			<p>클릭시에 로그아웃이 됩니다</p>
+	
+		<div class="tooltip">
+			<span><p id="lid-location"><a id="lid" href="${rootPath}/member/logout">${MEMBER.m_id}</a></p></span>
+			<div class="tooltip-content">
+				<p>클릭시에 로그아웃이 됩니다</p>
+			</div>
 		</div>
-	</div>
 </header>
 		<!-- 
 		<section>

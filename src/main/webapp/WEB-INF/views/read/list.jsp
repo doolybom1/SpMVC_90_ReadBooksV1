@@ -107,7 +107,7 @@ $(function() {
 									<td>${read.rb_date}</td>
 									<td>${read.rb_subject}</td>
 									<td>${read.rb_star}</td>
-									<td>${read.rb_name}</td>
+									<td>${read.rb_writer}</td>
 								</tr>
 					</c:forEach>
 				</c:otherwise>

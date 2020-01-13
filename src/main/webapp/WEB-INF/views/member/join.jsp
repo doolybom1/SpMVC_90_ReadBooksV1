@@ -86,7 +86,7 @@ $(function() {
 .join-form {
 	width: 400px;
 	padding: 40px;
-	background: blue;
+	background: black;
 	text-align: center;
 	z-index: 10;
 	border-radius: 20px;
