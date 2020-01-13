@@ -44,8 +44,6 @@ public class BookReadController {
 	@RequestMapping(value = "list",method=RequestMethod.GET)
 	public String readList(Model model, BookDTO bookDTO) {
 		
-		List<BookDTO> bList = bService.bookSelectAll();
-		
 		List<BookReadDTO> readList = brService.SelectAll();
 		
 		model.addAttribute("READ_LIST", readList);

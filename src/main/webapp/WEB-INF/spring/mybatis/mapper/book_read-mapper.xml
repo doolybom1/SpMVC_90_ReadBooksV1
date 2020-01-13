@@ -9,7 +9,7 @@
  		SELECT * FROM tbl_read_book ORDER BY rb_seq
  	</select>
  
- 	<!-- 
+
  	 <resultMap type="BookReadDTO" id="readAndBook">
   	<id column="rb_seq" property="rb_seq"/>
   	<result column="rb_bcode" property="rb_bcode" />
@@ -29,7 +29,7 @@
  	<select id="findByBCode" resultMap="readAndBook">
   	SELECT * FROM tbl_books WHERE b_code = #{b_code}
   </select>
- -->
+
 
  	<insert id="findByRBBCode" >
  		INSERT INTO tbl_read_book(
