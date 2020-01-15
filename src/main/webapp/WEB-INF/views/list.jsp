@@ -15,13 +15,16 @@
 		paddin:0;
 	}
 	.list{
-		border-collapse: collapse;
 		margin: auto;
 		overflow : auto;
+		text-align: center;
+		border-collapse: collapse;
+		border-radius: 20px;
+		
 	}
-	
 	.content-body td{
-		padding: 5px;
+		padding: 5px 7px;
+		
 	}
 	.content-body:hover{
 		cursor: pointer;
@@ -34,7 +37,8 @@
 		color: tomato;
 	}
 	.list-box th{
-		background-color: #ccc;
+		padding: 5px 7px;
+		background-color: #f7f7f7;
 	} 
 
 	#book_insert{
@@ -44,11 +48,13 @@
 	}
 	
 	#book_insert button{
+		font-size:15px;
 		padding: 10px;
 		background-color: tomato;
 		color:white;
 		border-style: none;
 		font-weight: bold;
+		border-radius: 5px;
 	}
 	#book_insert button:hover{
 		cursor: pointer;
@@ -61,6 +67,7 @@
 		width: 450px;
 	}
 	nav{
+		margin: 0 auto;
 		display: flex;
 	}
 	
@@ -68,14 +75,16 @@
 		margin-left: auto;
 	}
 	.join{
-		margin-right: 450px;
+		margin-right: 170px;
 	}
 	
 	#login, #join{
-		padding: 5px;
+		font-size:15px;
+		padding: 5px 10px;
 		color: white;
 		background-color: tomato;
 		border: none;
+		border-radius: 5px;
 	}
 	
 	#login:hover, #join:hover{
@@ -156,10 +165,11 @@
 	
 	#lid{
 		text-decoration: none;
+		text-transform: uppercase;
 	}
 	
 	#lid-location{
-		margin-left: 480px;
+		margin-left: 180px;
 	}
 	
 	<!-- -->
@@ -179,7 +189,7 @@
           	border-radius: 3px;
 			z-index: 1;
 			bottom: 180%;
-			left: 70%;
+			left: 40%;
 		}
 		.tooltip .tooltip-content::after {
 			content: " ";
@@ -218,7 +228,7 @@ $(function() {
 	<h2>도서 정보</h2>
 	
 		<div class="tooltip">
-			<span><p id="lid-location"><a id="lid" href="${rootPath}/member/logout">${MEMBER.m_id}</a></p></span>
+			<span><div id="lid-location"><a id="lid" href="${rootPath}/member/logout">${MEMBER.m_id}</a></div></span>
 			<div class="tooltip-content">
 				<p>클릭시에 로그아웃이 됩니다</p>
 			</div>

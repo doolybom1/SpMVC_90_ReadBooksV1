@@ -32,9 +32,11 @@
 	header h2{
 		text-align: center;
 		margin :2rem;
+		color: tomato;
 	}
 	.list-box th{
-		background-color: #ccc;
+		padding: 5px 7px;
+		background-color: #f7f7f7;
 	} 
 
 	#read_insert{
@@ -103,7 +105,7 @@ $(function() {
 								<tr class="content-body" data-id="${read.rb_seq}">
 									<td>${read.rb_seq }</td>
 									<td>${read.rb_bcode}</td>
-									<td>도서명</td>
+									<td>${read.bookNameList[0].b_name}</td>
 									<td>${read.rb_date}</td>
 									<td>${read.rb_subject}</td>
 									<td>${read.rb_star}</td>
