@@ -17,7 +17,7 @@
 	.list{
 		border:1px solid black;
 		margin: auto;
-		width: 800px;
+		width: 1000px;
 		overflow : auto;
 	}
 	
@@ -66,6 +66,21 @@
 		border-collapse: collapse;
 		text-align: center;
 	}
+	#main{
+		cursor: pointer;
+		margin: 5px;
+		padding: 6px 8px;
+		background-color: tomato;
+		border:	none;
+		color:white;
+		border-radius: 5px;
+		font-size: 15px;
+	}
+	
+	#btn-main{
+		
+		text-align: center !important;
+	}
 
 </style>
 	
@@ -77,6 +92,10 @@ $(function() {
 		let id = $(this).attr("data-id")
 
 		document.location.href = "${rootPath}/read/view?id=" + id
+	})
+	
+	$("#main").click(function() {
+		document.location.href = "${rootPath}/book/list"
 	})
 })
 </script>
@@ -115,5 +134,8 @@ $(function() {
 				</c:otherwise>
 			</c:choose>
 		</table>
+		<div id="btn-main">
+			<button type="button" id="main">메인 화면</button>
+		</div>
 </body>
 </html>

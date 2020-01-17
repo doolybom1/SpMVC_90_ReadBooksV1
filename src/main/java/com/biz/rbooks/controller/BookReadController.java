@@ -83,7 +83,6 @@ public class BookReadController {
 		
 		MemberDTO memberDTO = (MemberDTO) httpSession.getAttribute("MEMBER");
 		bookReadDTO.setRb_writer(memberDTO.getM_id());
-	
 		int ret = brService.insert(bookReadDTO);
 		
 		// session에 담긴 값을 clear 		
