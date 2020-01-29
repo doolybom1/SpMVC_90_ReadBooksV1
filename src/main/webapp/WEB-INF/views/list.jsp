@@ -8,201 +8,8 @@
 <meta charset="UTF-8">
 <title>나의 홈페이지</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="${rootPath}/css/main-list.css">
 
-<style>
-	*{
-		margin: 0;
-		paddin:0;
-	}
-	.list{
-		margin: auto;
-		overflow : auto;
-		text-align: center;
-		border-collapse: collapse;
-		border-radius: 20px;
-		
-	}
-	.content-body td{
-		padding: 5px 7px;
-		
-	}
-	.content-body:hover{
-		cursor: pointer;
-		border:4px solid tomato;
-	}
-
-	header h2{
-		text-align: center;
-		margin :1rem;
-		color: tomato;
-	}
-	.list-box th{
-		padding: 5px 7px;
-		background-color: #f7f7f7;
-	} 
-
-	#book_insert{
-		display:block;
-		margin: 10px auto;
-		text-align: center;
-	}
-	
-	#book_insert button{
-		font-size:15px;
-		padding: 10px;
-		background-color: tomato;
-		color:white;
-		border-style: none;
-		font-weight: bold;
-		border-radius: 5px;
-	}
-	#book_insert button:hover{
-		cursor: pointer;
-	}
-	section{
-		margin: 5px 25.6%;
-	}
-	#search{
-		padding: 0.5rem;
-		width: 450px;
-	}
-	nav{
-		margin: 0 auto;
-		display: flex;
-	}
-	
-	.login{
-		margin-left: auto;
-	}
-	.join{
-		margin-right: 170px;
-	}
-	
-	#login, #join{
-		font-size:15px;
-		padding: 5px 10px;
-		color: white;
-		background-color: tomato;
-		border: none;
-		border-radius: 5px;
-	}
-	
-	#login:hover, #join:hover{
-		cursor: pointer;
-	}
-	
-	nav>div{
-		margin: 0px 5px;
-		margin-bottom: 10px;
-	}
-	
-	#login_modal form{
-		
-		position: relative;
-		padding: 10px;
-		margin: 0 auto;
-		animation-name : form-ani;	
-		animation-duration : 0.9s;
-		animation-fill-mode: forwards;
-		
-		-webkkit-animation-name : form-ani;
-		-webkkit-animation-duration : 0.9s;
-		-webkkit-animation-fill-mode: forwards;
-		
-		-moz-animation-name : form-ani;
-		-moz-animation-duration : 0.9s;
-		-moz-animation-fill-mode: forwards;
-		
-		-ms-animation-name : form-ani;
-		-ms-animation-duration : 0.9s;
-		-ms-animation-fill-mode: forwards;
-	}
-	
-	/*
-		animation 실행하는 css
-	*/
-	
-	@keyFrames form-ani{
-	
-		from{
-			top: -300px;
-			opacity: 0;
-		}
-		
-		to{
-			top: 200px;
-			opacity: 1;
-		}
-		
-	}
-	
-	-webkkit-@keyFrames form-ani{
-	
-		from{
-			top: -300px;
-			opacity: 0;
-		}
-		
-		to{
-			top: 200px;
-			opacity: 1;
-		}
-	
-	}
-	
-	span.modal-close{
-		color: white;
-		float: right;
-		font-size: 30px;
-		font-weight: bold;
-	}
-	
-	span.modal-close:hover{
-		color:#000;
-		cursor: pointer;
-	}
-	
-	
-	#lid{
-		text-decoration: none;
-		text-transform: uppercase;
-	}
-	
-	#lid-location{
-		margin-left: 180px;
-	}
-	
-	<!-- -->
-	.tooltip {
-			position: relative;
-			display: inline-block;
-			margin: auto;
-		}
-		.tooltip .tooltip-content {
-			visibility: hidden;
-			width: 220px;
-			background-color: tomato;
-			padding: 10px;
-			color: white;
-			text-align: center;
-			position: absolute;
-          	border-radius: 3px;
-			z-index: 1;
-			bottom: 180%;
-			left: 40%;
-		}
-		.tooltip .tooltip-content::after {
-			content: " ";
-			position: absolute;
-			top: 100%;
-			left: 50%;
-			margin-left: -10px;
-			border-width: 10px;
-			border-style: solid;
-			border-color: tomato transparent transparent transparent;
-		}
-		.tooltip:hover .tooltip-content { visibility: visible; }
-</style>	
 <script>
 $(function() {
 	
@@ -215,6 +22,21 @@ $(function() {
 				document.location.href = "${rootPath}/book/view?id=" + id
 				}else{
 					document.location.href = "${rootPath}/member/login"
+			}
+		})
+		
+		$("#btn-insert").click(function() {
+			if("${MEMBER}" != ""){
+				document.location.href = "${rootPath}/book/insert"			
+			}else{
+				document.location.href = "${rootPath}/member/login"
+			}
+		})
+		$("#btn-list").click(function() {
+			if("${MEMBER}" != ""){
+				document.location.href = "${rootPath}/read/list"			
+			}else{
+				document.location.href = "${rootPath}/member/login"
 			}
 		})
 })
@@ -278,8 +100,8 @@ $(function() {
 			</c:choose>
 		</table>
 		<div id="book_insert">
-			<a href="${rootPath}/book/insert"><button >도서등록</button></a>
-			<a href="${rootPath}/read/list"><button>독서록 리스트</button></a>
+			<button id="btn-insert">도서등록</button>
+			<button id="btn-list">독서록 리스트</button>
 		</div>
 </body>
 </html>
