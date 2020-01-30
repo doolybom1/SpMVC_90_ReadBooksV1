@@ -55,6 +55,7 @@ header h2 {
 
 #book_insert button:hover {
 	cursor: pointer;
+	background-color: gray;
 }
 
 section {
@@ -67,19 +68,23 @@ section {
 }
 
 nav {
+	width:1073px;
 	margin: 5px auto;
 	display: flex;
+}
+
+nav>div {
+	margin: 0px 5px;
 }
 
 .login {
 	margin-left: auto;
 }
 
-.join {
-	margin-right: 170px;
-}
+
 
 #login, #join {
+	font-weight: bold;
 	font-size: 15px;
 	padding: 5px 10px;
 	color: white;
@@ -90,11 +95,9 @@ nav {
 
 #login:hover, #join:hover {
 	cursor: pointer;
+	background-color: gray;
 }
 
-nav>div {
-	margin: 0px 5px;
-}
 
 #login_modal form {
 	position: relative;
