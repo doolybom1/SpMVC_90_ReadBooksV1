@@ -2,7 +2,26 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(function() {
+	$("#btn-login").click(function() {
+		let id = $("#m_id").val()
+		if(id == ""){
+			alert("아이디를 입력하세요")
+			$("#m_id").focus()
+			return false
+		}
 
+		let pass = $("#m_password").val()
+		if(pass == ""){
+			alert("패스워드를 입력하세요")
+			$("#m_password").focus()
+			return false
+		}
+	})
+})	
+</script>
 <style>
 * {
 	margin: 0;

@@ -31,10 +31,10 @@
 	}
 	
 	caption {
-		font-size: 25px;
+		font-size: 30px;
 		padding:10px;
 		font-weight: bold;
-		color: tomato;
+		color: #55616a;
 	}
 	
 	div.btn-box {
@@ -50,7 +50,7 @@
 		padding:10px;
 		color: white;
 		display: inline-block;
-		background-color: tomato;
+		background-color: #212529;
 		border : 1px solid #56819d;
 		vertical-align: middle;
 		text-decoration: none;
@@ -60,8 +60,7 @@
 	}
 	
 	a.btn:hover {
-		/* border:1px solid blue; */
-		box-shadow: 5px 5px 8px rgba(80,80,80,0.8)
+		background-color: gray;
 	}
 	
 	td.m-text {

@@ -158,16 +158,12 @@ span.modal-close:hover {
 	text-transform: uppercase;
 }
 
-#lid-location {
-	margin-left: 180px;
-}
-
-<!--
--->
+<!---->
 .tooltip {
 	position: relative;
-	display: inline-block;
+	display: block;
 	margin: auto;
+	width: 1073px;
 }
 
 .tooltip .tooltip-content {
@@ -181,14 +177,13 @@ span.modal-close:hover {
 	border-radius: 3px;
 	z-index: 1;
 	bottom: 180%;
-	left: 40%;
 }
 
 .tooltip .tooltip-content::after {
 	content: " ";
 	position: absolute;
 	top: 100%;
-	left: 50%;
+	left: 20%;
 	margin-left: -10px;
 	border-width: 10px;
 	border-style: solid;

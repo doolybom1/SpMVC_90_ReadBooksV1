@@ -40,13 +40,15 @@
  
  button{
  	padding: 10px;
-	background-color: tomato;
+	background-color: #212529;
 	color:white;
 	border-style: none;
 	font-weight: bold;
+	border-radius: 5px;
  }
  button:hover{
  	cursor: pointer;
+ 	background-color: gray;
  }
  
 

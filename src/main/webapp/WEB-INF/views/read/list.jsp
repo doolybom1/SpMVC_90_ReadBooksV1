@@ -26,13 +26,17 @@
 	}
 	.content-body:hover{
 		cursor: pointer;
-		border:4px solid tomato;
+		background-color: #55616a;
+		transition: 0.5s;
+		color: white;
 	}
 
 	header h2{
 		text-align: center;
-		margin :2rem;
-		color: tomato;
+		margin :1rem;
+		font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+		font-size: 30px;
+		color: #55616a;
 	}
 	.list-box th{
 		padding: 5px 7px;
@@ -70,11 +74,15 @@
 		cursor: pointer;
 		margin: 5px;
 		padding: 6px 8px;
-		background-color: tomato;
+		background-color: #212529;
 		border:	none;
 		color:white;
 		border-radius: 5px;
 		font-size: 15px;
+	}
+	#main:hover{
+		cursor: pointer;
+		background-color: gray;
 	}
 	
 	#btn-main{
