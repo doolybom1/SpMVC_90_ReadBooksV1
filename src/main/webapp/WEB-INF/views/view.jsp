@@ -9,64 +9,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>□□□ 나의 JSP 페이지 □□□</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+<link rel="stylesheet" href="${rootPath}/css/view.css">
 </head>
-<style>
-	table{
-		width:70%;
-		margin:20px auto;
-		border-top: 2px solid #252525;
-		border-bottom: 1px solid #ccc;
-	}
-	
-	table th {
-		text-align : center;
-		background-color : #f7f7f7;
-		color : #3b3b3b;
-	}
-	
-	table th, table td {
-		padding:15px 0 16px 16px;
-		border-bottom: 1px solid #ccc;
-	}
-	
-	caption {
-		font-size: 30px;
-		padding:10px;
-		font-weight: bold;
-		color: #55616a;
-	}
-	
-	div.btn-box {
-		width:70%;
-		margin:5px auto;
-		
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-	a.btn {
-		border-radius: 3px;
-		padding:10px;
-		color: white;
-		display: inline-block;
-		background-color: #212529;
-		border : 1px solid #56819d;
-		vertical-align: middle;
-		text-decoration: none;
-		margin:10px;
-		border-style: none;
-		font-weight: bold;
-	}
-	
-	a.btn:hover {
-		background-color: gray;
-	}
-	
-	td.m-text {
-		white-space: pre-wrap;
-	}
-</style>
+
 <script>
 $(function(){
 	

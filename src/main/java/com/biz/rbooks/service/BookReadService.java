@@ -1,12 +1,13 @@
 package com.biz.rbooks.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.biz.rbooks.domain.BookDTO;
 import com.biz.rbooks.domain.BookReadDTO;
 import com.biz.rbooks.repository.BookReadDao;
 
@@ -23,8 +24,10 @@ public class BookReadService {
 		brDao = sqlSession.getMapper(BookReadDao.class);
 	}
 	
-	public List<BookReadDTO> SelectAll() {
-		return brDao.selectAll();
+	public List<BookReadDTO> SelectAll(long curPage) {
+		Map map = new HashMap();
+		map.put("curPage", curPage);
+		return brDao.selectAll(map);
 	}
 
 	public int insert(BookReadDTO bookReadDTO) {

@@ -15,22 +15,19 @@ import lombok.ToString;
 @Builder
 public class PageDTO {
 
-	private long totalCount;
+	private long totalCount;	// 전체 데이터 개수
 	
-	private int offset;
-	private int limit;
+	private long litsPerPage;	// 한페이지에 보여질 데이터 개수
+	private long pageCount;		// 현재페이지 하단에 보여질 페이지번호 리스트 개수
 	
-	private int listPerPage;
-	private int pageCount;
+	private long firstPageNo;	// 전체데이터의 첫페이지 번호(일반적으로 1)
+	private long finalPageNo;	// 전체데이터의 마지막 페이지 번호(계산결과)
 	
-	private int firstPageNo;
-	private int finalPageNo;
+	private long prePageNo;		// 이전페이지
+	private long startPageNo;	// 보여지는 리스트의 시작페이지 번호
 	
-	private int prePageNo;
-	private int nextPageNo;
+	private long nextPageNo;	// 다음페이지
+	private long endPageNo;		// 보여지는 리스트의 끝 번호
 	
-	private int startPageNo;
-	private int endPageNo;
-	
-	private int currentPageNo;
+	private long currentPageNo;	// 현재 선택된 페이지 번호
 }

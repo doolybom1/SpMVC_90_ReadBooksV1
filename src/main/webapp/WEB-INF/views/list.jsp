@@ -9,7 +9,7 @@
 <title>나의 홈페이지</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet" href="${rootPath}/css/main-list.css">
-
+<link rel="stylesheet" href="${rootPath}/css/pagination.css">
 <script>
 $(function() {
 	
@@ -83,7 +83,7 @@ $(function() {
 			</tr>
 			<c:choose>
 			<c:when test="${empty BOOK_LIST}">
-				<tr><td colspan="6"></td>
+				<tr><td colspan="6">데이터가 없습니다</td>
 			</c:when>
 			<c:otherwise>
 					<c:forEach items="${BOOK_LIST}" var="book" varStatus="index">
@@ -99,6 +99,33 @@ $(function() {
 				</c:otherwise>
 			</c:choose>
 		</table>
+		
+		<!-- Pagination -->
+		 <article class="page-box">
+			<ul class="page-body">
+				<li class="page-item">
+				<a href="${rootPath}/book/list?currentPageNo=${PAGE.firstPageNo}" class="page-link">&lt;&lt;</a>	
+				
+				<li class="page-item">
+				<a href="${rootPath}/book/list?currentPageNo=${PAGE.prePageNo}" class="page-link">&lt;</a>
+				
+				<!-- begin ~ end까지 반복 -->
+				<c:forEach begin="${PAGE.startPageNo}" end ="${PAGE.endPageNo}" var="page">
+				<li class="page-item <c:if test="${page == PAGE.currentPageNo}">active</c:if>" >
+				
+				<a href="${rootPath}/book/list?currentPageNo=${page}" class="page-link">${page}</a>
+				
+				</c:forEach>
+				
+				<li class="page-item">
+				<a href="${rootPath}/book/list?currentPageNo=${PAGE.nextPageNo}" class="page-link">&gt;</a>
+				<li class="page-item">
+				<a href="${rootPath}/book/list?currentPageNo=${PAGE.finalPageNo}" class="page-link">&gt;&gt;</a>
+			</ul>
+			</article>
+		
+		
+		
 		<div id="book_insert">
 			<button id="btn-insert">도서등록</button>
 			<button id="btn-list">독서록 리스트</button>

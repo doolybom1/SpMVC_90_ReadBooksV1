@@ -6,7 +6,25 @@
  <mapper namespace="com.biz.rbooks.repository.BookReadDao">
  	
  	<select id="selectAll" resultMap="readAndBook">
- 		SELECT * FROM tbl_read_book ORDER BY rb_seq
+ 		<![CDATA[
+ 		SELECT * FROM
+		    (
+		        SELECT
+		            A.*,
+		            ROWNUM AS RNUM
+		        FROM
+		            (
+		                SELECT
+		                    *
+		                FROM
+		                    tbl_read_book
+		                ORDER BY
+		                    rb_seq DESC
+		            ) A
+		    )
+		WHERE
+		    RNUM > (#{curPage} -1) * 20 AND RNUM <= #{curPage} * 20
+	]]>
  	</select>
  	
 

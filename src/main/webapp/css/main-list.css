@@ -2,10 +2,11 @@
 
 * {
 	margin: 0;
-	paddin: 0;
+	padding: 0;
 }
 
 .list {
+	width:1073px;
 	margin: auto;
 	overflow: auto;
 	text-align: center;

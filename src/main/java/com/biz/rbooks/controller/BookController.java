@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.biz.rbooks.domain.BookDTO;
+import com.biz.rbooks.domain.PageDTO;
 import com.biz.rbooks.service.BookService;
+import com.biz.rbooks.service.PageService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -31,13 +33,16 @@ public class BookController {
 	@Autowired
 	BookService bService;
 	
+	@Autowired
+	PageService pService;
 	/*
 	 * 도서 정보 리스트 
 	 * model 변수를 통해서 전체리스트를 list.jsp로 넘겨준다
 	 */
 	@RequestMapping(value = "list",method = RequestMethod.GET)
-	public String list(Model model) {
+	public String list(Model model,@RequestParam(value = "currentPageNo", required = false, defaultValue = "1") long currentPageNo) {
 		
+//  검색에 사용하려고 놔둔 소스	
 //		List<BookDTO> bList; 
 //		if(search == null || search.isEmpty()) {
 //			bList = bService.bookSelectAll();	
@@ -45,8 +50,9 @@ public class BookController {
 //			bList = bService.getSearchList(search);
 //		}
 		
-		List<BookDTO> bList = bService.bookSelectAll();
-		
+		List<BookDTO> bList = bService.bookSelectAll(currentPageNo);
+		PageDTO pageDTO = pService.makePagination(100, currentPageNo);
+		model.addAttribute("PAGE", pageDTO);
 		model.addAttribute("BOOK_LIST", bList);
 		
 		return "list";

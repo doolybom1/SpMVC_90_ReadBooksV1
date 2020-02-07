@@ -2,57 +2,15 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<c:set var="rootPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+<link rel="stylesheet" href="${rootPath}/css/read/insert.css">
 <title>□□□ 도서록 정보 □□□</title>
-<style>
- fieldset {
- 	width:70%;
- 	margin:20px auto;
- 	border:1px solid green;
- 	border-radius: 10px;
- }
- 
- legend {
- 	font-weight: bold;
- 	font-size:20px;
- }
- 
- input {
- 	display: inline-block;
- 	width:90%;
- 	padding:8px;
- 	margin:5px;
- }
- 
- input:focus{
- 	border:2px solid blue;
- 	outline: none;
- }
- .book-form{
- 	text-align: center;
- }
- 
- button{
- 	padding: 10px;
-	background-color: #212529;
-	color:white;
-	border-style: none;
-	font-weight: bold;
-	border-radius: 5px;
- }
- button:hover{
- 	cursor: pointer;
- 	background-color: gray;
- }
- 
-
-</style>
 
 
 </head>

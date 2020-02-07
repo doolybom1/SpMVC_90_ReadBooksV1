@@ -8,89 +8,8 @@
 <meta charset="UTF-8">
 <title>나의 홈페이지</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-<style>
-	*{
-		margin: 0;
-		paddin:0;
-	}
-	.list{
-		border:1px solid black;
-		margin: auto;
-		width: 1000px;
-		overflow : auto;
-	}
-	
-	.content-body td{
-		padding: 5px;
-	}
-	.content-body:hover{
-		cursor: pointer;
-		background-color: #55616a;
-		transition: 0.5s;
-		color: white;
-	}
-
-	header h2{
-		text-align: center;
-		margin :1rem;
-		font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
-		font-size: 30px;
-		color: #55616a;
-	}
-	.list-box th{
-		padding: 5px 7px;
-		background-color: #f7f7f7;
-	} 
-
-	#read_insert{
-		display:block;
-		margin: 10px auto;
-		text-align: center;
-	}
-	
-	#read_insert button{
-		padding: 10px;
-		background-color: tomato;
-		color:white;
-		border-style: none;
-		font-weight: bold;
-	}
-	#read_insert button:hover{
-		cursor: pointer;
-	}
-	section{
-		margin: 5px 25.6%;
-	}
-	#search{
-		padding: 0.5rem;
-		width: 450px;
-	}
-	.list{
-		border-collapse: collapse;
-		text-align: center;
-	}
-	#main{
-		cursor: pointer;
-		margin: 5px;
-		padding: 6px 8px;
-		background-color: #212529;
-		border:	none;
-		color:white;
-		border-radius: 5px;
-		font-size: 15px;
-	}
-	#main:hover{
-		cursor: pointer;
-		background-color: gray;
-	}
-	
-	#btn-main{
-		
-		text-align: center !important;
-	}
-
-</style>
+<link rel="stylesheet" href="${rootPath}/css/read/list.css">
+<link rel="stylesheet" href="${rootPath}/css/pagination.css">
 	
 <script>
 $(function() {
@@ -125,7 +44,7 @@ $(function() {
 			</tr>
 			<c:choose>
 			<c:when test="${empty READ_LIST}">
-				<tr><td colspan="7"></td>
+				<tr><td colspan="7">데이터가 없습니다</td>
 			</c:when>
 			<c:otherwise>
 					<c:forEach var="read"  items="${READ_LIST}" varStatus="status">
@@ -142,6 +61,31 @@ $(function() {
 				</c:otherwise>
 			</c:choose>
 		</table>
+		
+		<!-- Pagination -->
+		 <article class="page-box">
+			<ul class="page-body">
+				<li class="page-item">
+				<a href="${rootPath}/read/list?currentPageNo=${PAGE.firstPageNo}" class="page-link">&lt;&lt;</a>	
+				
+				<li class="page-item">
+				<a href="${rootPath}/read/list?currentPageNo=${PAGE.prePageNo}" class="page-link">&lt;</a>
+				
+				<!-- begin ~ end까지 반복 -->
+				<c:forEach begin="${PAGE.startPageNo}" end ="${PAGE.endPageNo}" var="page">
+				<li class="page-item <c:if test="${page == PAGE.currentPageNo}">active</c:if>" >
+				
+				<a href="${rootPath}/read/list?currentPageNo=${page}" class="page-link">${page}</a>
+				
+				</c:forEach>
+				
+				<li class="page-item">
+				<a href="${rootPath}/read/list?currentPageNo=${PAGE.nextPageNo}" class="page-link">&gt;</a>
+				<li class="page-item">
+				<a href="${rootPath}/read/list?currentPageNo=${PAGE.finalPageNo}" class="page-link">&gt;&gt;</a>
+			</ul>
+			</article>
+		
 		<div id="btn-main">
 			<button type="button" id="main">메인 화면</button>
 		</div>

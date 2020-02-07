@@ -1,13 +1,13 @@
 package com.biz.rbooks.repository;
 
 import java.util.List;
+import java.util.Map;
 
-import com.biz.rbooks.domain.BookDTO;
 import com.biz.rbooks.domain.BookReadDTO;
 
 public interface BookReadDao {
 
-	public List<BookReadDTO> selectAll();
+	public List<BookReadDTO> selectAll(Map map);
 
 	public int findByRBBCode(BookReadDTO bookReadDTO);
 

@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	paddin: 0;
+}
+
+.list {
+	border: 1px solid black;
+	margin: auto;
+	width: 1200px;
+	overflow: auto;
+}
+
+.content-body td {
+	padding: 5px;
+}
+
+.content-body:hover {
+	cursor: pointer;
+	background-color: #55616a;
+	transition: 0.5s;
+	color: white;
+}
+
+header h2 {
+	text-align: center;
+	margin: 1rem;
+	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 30px;
+	color: #55616a;
+}
+
+.list-box th {
+	padding: 5px 7px;
+	background-color: #f7f7f7;
+}
+
+#read_insert {
+	display: block;
+	margin: 10px auto;
+	text-align: center;
+}
+
+#read_insert button {
+	padding: 10px;
+	background-color: tomato;
+	color: white;
+	border-style: none;
+	font-weight: bold;
+}
+
+#read_insert button:hover {
+	cursor: pointer;
+}
+
+section {
+	margin: 5px 25.6%;
+}
+
+#search {
+	padding: 0.5rem;
+	width: 450px;
+}
+
+.list {
+	border-collapse: collapse;
+	text-align: center;
+}
+
+#main {
+	cursor: pointer;
+	margin: 5px;
+	padding: 6px 8px;
+	background-color: #212529;
+	border: none;
+	color: white;
+	border-radius: 5px;
+	font-size: 15px;
+}
+
+#main:hover {
+	cursor: pointer;
+	background-color: gray;
+}
+
+#btn-main {
+	text-align: center !important;
+}

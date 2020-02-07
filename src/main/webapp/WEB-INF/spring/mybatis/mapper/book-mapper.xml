@@ -7,7 +7,25 @@
  
   
  	<select id="bookSelectAll" resultType="bookDTO">
- 		SELECT * FROM tbl_books
+ 		<![CDATA[
+ 		SELECT * FROM
+		    (
+		        SELECT
+		            A.*,
+		            ROWNUM AS RNUM
+		        FROM
+		            (
+		                SELECT
+		                    *
+		                FROM
+		                    tbl_books
+		                ORDER BY
+		                    b_code DESC
+		            ) A
+		    )
+		WHERE
+		    RNUM > (#{curPage} -1) * 15 AND RNUM <= #{curPage} * 15
+	]]>
  	</select>
  	
  	<select id="findByBCode" resultType="bookDTO">

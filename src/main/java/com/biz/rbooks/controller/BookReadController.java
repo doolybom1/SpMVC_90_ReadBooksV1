@@ -7,6 +7,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,8 +19,10 @@ import org.springframework.web.bind.support.SessionStatus;
 import com.biz.rbooks.domain.BookDTO;
 import com.biz.rbooks.domain.BookReadDTO;
 import com.biz.rbooks.domain.MemberDTO;
+import com.biz.rbooks.domain.PageDTO;
 import com.biz.rbooks.service.BookReadService;
 import com.biz.rbooks.service.BookService;
+import com.biz.rbooks.service.PageService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -37,16 +40,18 @@ public class BookReadController {
 	@Autowired
 	BookService bService;
 	
-	
+	@Autowired
+	PageService pService;
 	/*
 	 * 독서록 리스트 메서드
 	 */
 	@RequestMapping(value = "list",method=RequestMethod.GET)
-	public String readList(Model model, BookReadDTO bookReadDTO) {
+	public String readList(Model model, BookReadDTO bookReadDTO,
+			@RequestParam(value="currentPageNo", required = false, defaultValue = "1") long currentPageNo ) {
 		
-		List<BookReadDTO> readList = brService.SelectAll();
-		log.debug("로그확인"+ readList.toString());
-		
+		List<BookReadDTO> readList = brService.SelectAll(currentPageNo);
+		PageDTO pageDTO = pService.makePagination(100, currentPageNo);
+		model.addAttribute("PAGE", pageDTO);
 		model.addAttribute("READ_LIST", readList);
 		
 		return "read/list";
