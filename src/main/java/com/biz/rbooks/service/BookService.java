@@ -49,10 +49,8 @@ public class BookService {
 
 	
 	
-	
-	
 	public List<BookDTO> getSearchList(String search) {
-		return null;
+		return bDao.findByTitle(search);
 	}
 
 	public int delete(String b_code) {

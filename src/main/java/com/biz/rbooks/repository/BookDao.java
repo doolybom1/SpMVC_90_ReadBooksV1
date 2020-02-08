@@ -17,4 +17,6 @@ public interface BookDao {
 
 	// 도서 정보 b_code로 select
 	public BookDTO findByBCode(String b_code);
+
+	public List<BookDTO> findByTitle(String search);
 }

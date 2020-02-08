@@ -40,18 +40,16 @@ public class BookController {
 	 * model 변수를 통해서 전체리스트를 list.jsp로 넘겨준다
 	 */
 	@RequestMapping(value = "list",method = RequestMethod.GET)
-	public String list(Model model,@RequestParam(value = "currentPageNo", required = false, defaultValue = "1") long currentPageNo) {
+	public String list(Model model,@RequestParam(value = "currentPageNo", required = false, defaultValue = "1") long currentPageNo,String search) {
 		
-//  검색에 사용하려고 놔둔 소스	
-//		List<BookDTO> bList; 
-//		if(search == null || search.isEmpty()) {
-//			bList = bService.bookSelectAll();	
-//		} else {
-//			bList = bService.getSearchList(search);
-//		}
+		List<BookDTO> bList; 
+		if(search == null || search.isEmpty()) {
+			bList = bService.bookSelectAll(currentPageNo);
+		} else {
+			bList = bService.getSearchList(search);
+		}
 		
-		List<BookDTO> bList = bService.bookSelectAll(currentPageNo);
-		PageDTO pageDTO = pService.makePagination(100, currentPageNo);
+		PageDTO pageDTO = pService.makePagination(1000, currentPageNo);
 		model.addAttribute("PAGE", pageDTO);
 		model.addAttribute("BOOK_LIST", bList);
 		

@@ -24,8 +24,13 @@
 		            ) A
 		    )
 		WHERE
-		    RNUM > (#{curPage} -1) * 15 AND RNUM <= #{curPage} * 15
+		    RNUM > (#{curPage} -1) * 10 AND RNUM <= #{curPage} * 10
 	]]>
+ 	</select>
+ 	
+ 	<select id="findByTitle" resultType="bookDTO">
+ 		SELECT * FROM tbl_books
+ 		WHERE b_name LIKE '%' || #{b_name} || '%'
  	</select>
  	
  	<select id="findByBCode" resultType="bookDTO">
