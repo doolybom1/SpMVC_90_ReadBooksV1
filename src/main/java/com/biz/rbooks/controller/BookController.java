@@ -49,7 +49,9 @@ public class BookController {
 			bList = bService.getSearchList(search);
 		}
 		
-		PageDTO pageDTO = pService.makePagination(1000, currentPageNo);
+		long totalCount = bService.allCount();
+		
+		PageDTO pageDTO = pService.makePagination(totalCount, currentPageNo);
 		model.addAttribute("PAGE", pageDTO);
 		model.addAttribute("BOOK_LIST", bList);
 		

@@ -19,4 +19,6 @@ public interface BookDao {
 	public BookDTO findByBCode(String b_code);
 
 	public List<BookDTO> findByTitle(String search);
+
+	public long allCount();
 }

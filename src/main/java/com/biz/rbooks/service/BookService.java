@@ -58,6 +58,10 @@ public class BookService {
 		return bDao.delete(b_code);
 	}
 
+	public long allCount() {
+		return bDao.allCount();
+	}
+
 
 
 	
