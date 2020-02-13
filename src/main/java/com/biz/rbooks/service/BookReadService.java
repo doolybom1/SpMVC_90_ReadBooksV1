@@ -48,6 +48,10 @@ public class BookReadService {
 		return brDao.delete(rb_seq);
 	}
 
+	public long allCount() {
+		return brDao.allCount();
+	}
+
 
 	
 

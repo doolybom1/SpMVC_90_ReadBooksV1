@@ -17,4 +17,6 @@ public interface BookReadDao {
 
 	public int delete(long rb_seq);
 
+	public long allCount();
+
 }

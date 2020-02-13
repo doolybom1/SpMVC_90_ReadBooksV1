@@ -10,6 +10,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet" href="${rootPath}/css/main-list.css">
 <link rel="stylesheet" href="${rootPath}/css/pagination.css">
+
 <script>
 $(function() {
 	

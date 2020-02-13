@@ -23,8 +23,12 @@
 		            ) A
 		    )
 		WHERE
-		    RNUM > (#{curPage} -1) * 20 AND RNUM <= #{curPage} * 20
+		    RNUM > (#{curPage} -1) * 10 AND RNUM <= #{curPage} * 10
 	]]>
+ 	</select>
+ 	
+ 	<select id="allCount" resultType="long">
+ 		SELECT COUNT(*) FROM tbl_read_book
  	</select>
  	
 

@@ -50,7 +50,10 @@ public class BookReadController {
 			@RequestParam(value="currentPageNo", required = false, defaultValue = "1") long currentPageNo ) {
 		
 		List<BookReadDTO> readList = brService.SelectAll(currentPageNo);
-		PageDTO pageDTO = pService.makePagination(100, currentPageNo);
+		
+		long totalCount = brService.allCount();
+		
+		PageDTO pageDTO = pService.makePagination(totalCount, currentPageNo);
 		model.addAttribute("PAGE", pageDTO);
 		model.addAttribute("READ_LIST", readList);
 		
