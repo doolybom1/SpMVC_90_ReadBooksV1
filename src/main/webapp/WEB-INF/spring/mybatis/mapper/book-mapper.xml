@@ -24,19 +24,22 @@
 		            ) A
 		    )
 		WHERE
-		    RNUM > (#{curPage} -1) * 10 AND RNUM <= #{curPage} * 10
+			RNUM > (#{curPage} -1) * 10 AND RNUM <= #{curPage} * 10
 		]]>
  	</select>
  	
+
  	<select id="allCount" resultType="long">
  		SELECT COUNT(*) FROM tbl_books
  	</select>
  	
- 	<select id="findByTitle" resultType="bookDTO">
+ 		
+  	<select id="findByTitle" resultType="bookDTO">
  		SELECT * FROM tbl_books
  		WHERE b_name LIKE '%' || #{b_name} || '%'
  	</select>
- 	
+
+
  	<select id="findByBCode" resultType="bookDTO">
  		SELECT * FROM tbl_books
  		WHERE b_code = #{b_code}

@@ -28,7 +28,7 @@ public class PageService {
 		if(totalCount < 1) return null;
 		
 		// (전체데이터 + 보여질리스트 -1) / 보여질리스트
-		long finalPageNo = (totalCount + (listPerPage -1)) / listPerPage;
+		long finalPageNo = (totalCount + (listPerPage - 1)) / listPerPage;
 		
 		// naver는 페이지를 검색할때 1000페이지가 넘어가면 오류를 보낸다.
 		// finalPageNo = finalPageNo > 1000 ? 1000 : finalPageNo; // 3항연산자

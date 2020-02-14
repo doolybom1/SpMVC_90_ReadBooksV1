@@ -29,8 +29,7 @@ public class BookService {
 		map.put("curPage", curPage);
 		List<BookDTO> rList = bDao.bookSelectAll(map);
 		
-		return rList;
-		
+		return rList;	
 	}
 
 	public int insert(BookDTO bookDTO) {
@@ -50,6 +49,7 @@ public class BookService {
 	
 	
 	public List<BookDTO> getSearchList(String search) {
+
 		return bDao.findByTitle(search);
 	}
 

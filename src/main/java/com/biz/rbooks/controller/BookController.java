@@ -35,6 +35,8 @@ public class BookController {
 	
 	@Autowired
 	PageService pService;
+	
+
 	/*
 	 * 도서 정보 리스트 
 	 * model 변수를 통해서 전체리스트를 list.jsp로 넘겨준다
@@ -44,16 +46,17 @@ public class BookController {
 		
 		
 		PageDTO pageDTO;
-		long totalCount = bService.allCount();
-		long searchCount = bService.getSearchList(search).size(); // 검색한 도서정보만을 보여주기위해 갯수를 count
+		long totalCount;
 		List<BookDTO> bList; 
 		
 		if(search == null || search.isEmpty()) {
+			totalCount = bService.allCount();
 			bList = bService.bookSelectAll(currentPageNo);
 			pageDTO = pService.makePagination(totalCount, currentPageNo);
 		} else {
 			bList = bService.getSearchList(search);
-			pageDTO = pService.makePagination(searchCount, currentPageNo);
+			totalCount = bList.size(); // 검색한 도서정보만을 보여주기위해 갯수를 count 
+			pageDTO = pService.makePagination(totalCount, currentPageNo);
 		}
 		
 		

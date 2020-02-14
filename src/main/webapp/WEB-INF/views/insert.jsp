@@ -32,6 +32,12 @@ $(function() {
 			alert("출판사는 반드시 입력하세요");
 			return false;
 		}
+		
+		let b_auth = $("#b_auther").val()
+		if(b_auth == ""){
+			alert("저자는 반드시 입력하세요");
+			return false;
+		}
 	})
 	
 	$("#btn-read-insert").click(function() {
