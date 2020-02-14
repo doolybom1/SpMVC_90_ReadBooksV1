@@ -42,16 +42,22 @@ public class BookController {
 	@RequestMapping(value = "list",method = RequestMethod.GET)
 	public String list(Model model,@RequestParam(value = "currentPageNo", required = false, defaultValue = "1") long currentPageNo,String search) {
 		
+		
+		PageDTO pageDTO;
+		long totalCount = bService.allCount();
+		long searchCount = bService.getSearchList(search).size(); // 검색한 도서정보만을 보여주기위해 갯수를 count
 		List<BookDTO> bList; 
+		
 		if(search == null || search.isEmpty()) {
 			bList = bService.bookSelectAll(currentPageNo);
+			pageDTO = pService.makePagination(totalCount, currentPageNo);
 		} else {
 			bList = bService.getSearchList(search);
+			pageDTO = pService.makePagination(searchCount, currentPageNo);
 		}
 		
-		long totalCount = bService.allCount();
 		
-		PageDTO pageDTO = pService.makePagination(totalCount, currentPageNo);
+		//PageDTO pageDTO = pService.makePagination(totalCount, currentPageNo);
 		model.addAttribute("PAGE", pageDTO);
 		model.addAttribute("BOOK_LIST", bList);
 		
