@@ -30,4 +30,5 @@ public class PageDTO {
 	private long endPageNo;		// 보여지는 리스트의 끝 번호
 	
 	private long currentPageNo;	// 현재 선택된 페이지 번호
+	
 }

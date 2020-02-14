@@ -27,18 +27,38 @@
 			RNUM > (#{curPage} -1) * 10 AND RNUM <= #{curPage} * 10
 		]]>
  	</select>
+
+ 	<select id="nameSelectAll" resultType="bookDTO" parameterType="map">
+ 		<![CDATA[
+ 		SELECT * FROM
+		    (
+		        SELECT
+		            A.*,
+		            ROWNUM AS RNUM
+		        FROM
+		            (
+		                SELECT
+		                    *
+		                FROM
+		                    tbl_books
+		                WHERE
+                            b_name LIKE '%'|| #{b_name} || '%'
+		            ) A
+		    )
+		WHERE
+			RNUM > (#{curPage} -1) * 10 AND RNUM <= #{curPage} * 10
+		]]>
+ 	</select>
  	
 
  	<select id="allCount" resultType="long">
  		SELECT COUNT(*) FROM tbl_books
  	</select>
  	
- 		
-  	<select id="findByTitle" resultType="bookDTO">
+ 	<select id="findByTitle" resultType="bookDTO">
  		SELECT * FROM tbl_books
  		WHERE b_name LIKE '%' || #{b_name} || '%'
  	</select>
-
 
  	<select id="findByBCode" resultType="bookDTO">
  		SELECT * FROM tbl_books

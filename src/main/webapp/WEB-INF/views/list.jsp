@@ -105,30 +105,28 @@ $(function() {
 		</table>
 		
 		<!-- Pagination -->
-		 <article class="page-box">
-			<ul class="page-body">
-				<li class="page-item">
-				<a href="${rootPath}/book/list?search=${search}&currentPageNo=${PAGE.firstPageNo}" class="page-link">&lt;&lt;</a>	
-				
-				<li class="page-item">
-				<a href="${rootPath}/book/list?search=${search}&currentPageNo=${PAGE.prePageNo}" class="page-link">&lt;</a>
-				
-				<!-- begin ~ end까지 반복 -->
-				<c:forEach begin="${PAGE.startPageNo}" end ="${PAGE.endPageNo}" var="page">
-				<li class="page-item <c:if test="${page == PAGE.currentPageNo}">active</c:if>" >
-				
-				<a href="${rootPath}/book/list?search=${search}&currentPageNo=${page}" class="page-link">${page}</a>
-				
-				</c:forEach>
-				
-				<li class="page-item">
-				<a href="${rootPath}/book/list?search=${search}&currentPageNo=${PAGE.nextPageNo}" class="page-link">&gt;</a>
-				<li class="page-item">
-				<a href="${rootPath}/book/list?search=${search}&currentPageNo=${PAGE.finalPageNo}" class="page-link">&gt;&gt;</a>
-			</ul>
-			</article>
-		
-		
+				<article class="page-box">
+					<ul class="page-body">
+						<li class="page-item">
+						<a href="${rootPath}/book/list?search=${search}&currentPageNo=${PAGE.firstPageNo}" class="page-link">&lt;&lt;</a>	
+						
+						<li class="page-item">
+						<a href="${rootPath}/book/list?search=${search}&currentPageNo=${PAGE.prePageNo}" class="page-link">&lt;</a>
+						
+						<!-- begin ~ end까지 반복 -->
+						<c:forEach begin="${PAGE.startPageNo}" end ="${PAGE.endPageNo}" var="page">
+						<li class="page-item <c:if test="${page == PAGE.currentPageNo}">active</c:if>" >
+						
+						<a href="${rootPath}/book/list?search=${search}&currentPageNo=${page}" class="page-link">${page}</a>
+						
+						</c:forEach>
+						
+						<li class="page-item">
+						<a href="${rootPath}/book/list?search=${search}&currentPageNo=${PAGE.nextPageNo}" class="page-link">&gt;</a>
+						<li class="page-item">
+						<a href="${rootPath}/book/list?search=${search}&currentPageNo=${PAGE.finalPageNo}" class="page-link">&gt;&gt;</a>
+					</ul>
+				</article>
 		
 		<div id="book_insert">
 			<button id="btn-insert">도서등록</button>

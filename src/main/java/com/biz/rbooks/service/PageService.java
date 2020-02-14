@@ -50,6 +50,7 @@ public class PageService {
 		// cur : 3 이면 1  ~ 5, 
 		// cur 10 이면 8 ~ 12까지 이런식으로 보여주기 위한 계산
 		
+		
 		long startPageNo = ((currentPageNo - 1) / this.pageCount) 
 				* this.pageCount + 1;
 		long endPageNo = startPageNo + this.pageCount - 1;

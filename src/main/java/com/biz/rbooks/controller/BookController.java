@@ -42,26 +42,27 @@ public class BookController {
 	 * model 변수를 통해서 전체리스트를 list.jsp로 넘겨준다
 	 */
 	@RequestMapping(value = "list",method = RequestMethod.GET)
-	public String list(Model model,@RequestParam(value = "currentPageNo", required = false, defaultValue = "1") long currentPageNo,String search) {
+	public String list(String search,@RequestParam(value = "currentPageNo", required = false, defaultValue = "1") long currentPageNo,Model model) {
 		
 		
-		PageDTO pageDTO;
+		//PageDTO pageDTO;
 		long totalCount;
 		List<BookDTO> bList; 
 		
 		if(search == null || search.isEmpty()) {
 			totalCount = bService.allCount();
 			bList = bService.bookSelectAll(currentPageNo);
-			pageDTO = pService.makePagination(totalCount, currentPageNo);
+			PageDTO pageDTO = pService.makePagination(totalCount, currentPageNo);
+			model.addAttribute("PAGE", pageDTO);
 		} else {
-			bList = bService.getSearchList(search);
-			totalCount = bList.size(); // 검색한 도서정보만을 보여주기위해 갯수를 count 
-			pageDTO = pService.makePagination(totalCount, currentPageNo);
+			totalCount = bService.findByTitle(search).size(); // 검색한 도서정보만을 보여주기위해 갯수를 count 
+			bList = bService.nameSelectAll(search,currentPageNo);
+			PageDTO pageDTO = pService.makePagination(totalCount, currentPageNo);
+			model.addAttribute("PAGE", pageDTO);
+			model.addAttribute("search", search);
+			
 		}
 		
-		
-		//PageDTO pageDTO = pService.makePagination(totalCount, currentPageNo);
-		model.addAttribute("PAGE", pageDTO);
 		model.addAttribute("BOOK_LIST", bList);
 		
 		return "list";

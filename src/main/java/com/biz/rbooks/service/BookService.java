@@ -49,8 +49,12 @@ public class BookService {
 	
 	
 	public List<BookDTO> getSearchList(String search) {
-
 		return bDao.findByTitle(search);
+	}
+
+	public List<BookDTO> nameSelectAll(String b_name,long curPage) {
+		List<BookDTO> rList = bDao.nameSelectAll(b_name,curPage);
+		return rList;
 	}
 
 	public int delete(String b_code) {
@@ -60,6 +64,11 @@ public class BookService {
 
 	public long allCount() {
 		return bDao.allCount();
+	}
+
+	public List<BookDTO> findByTitle(String search) {
+		
+		return bDao.findByTitle(search);
 	}
 
 
